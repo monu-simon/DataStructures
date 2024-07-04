@@ -5,6 +5,16 @@ const depthFirstPrint = (graph, source) => {
     }
 }
 
+const hasPath = (graph, src, dst) => {
+    if (src === dst) return true
+    for (let neighbour of graph[src]) {
+        if (hasPath(graph, neighbour, dst) === true) {
+            return true;
+        }
+    }
+    return false
+};
+
 const graph = {
     a: ['b', 'c'],
     b: ['d'],
